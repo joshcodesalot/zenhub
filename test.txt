@@ -24,7 +24,7 @@ getgenv().clonefunc = nil
 local Notify = loadstring(game:HttpGet("https://raw.githubusercontent.com/x9PSwiftz/Panda/main/Notification.lua"))() 
 local instance = {obj = {}}
 local object = instance.obj
-local HubName = "Tsuo Hub"
+local HubName = "Naoki Hub"
 function instance.new(class, properties)
     local inst = Instance.new(class)
     for property, value in next, properties do
@@ -33,7 +33,7 @@ function instance.new(class, properties)
     table.insert(instance.obj, inst)
     return inst
 end
-object.TsuoHub = instance.new("ScreenGui", {
+object.NaokiHub = instance.new("ScreenGui", {
     Name = "Mo Mo Be";
     Parent = game.CoreGui;
     ZIndexBehavior = Enum.ZIndexBehavior.Sibling;
@@ -45,7 +45,7 @@ object.Main = instance.new("Frame", {
     BorderColor3 = Color3.fromRGB(0, 0, 0);
     BorderSizePixel = 0;
     Name = "Main";
-    Parent = object.TsuoHub;
+    Parent = object.NaokiHub;
     Position = UDim2.new(0.492770165, 0, 0.5, 0);
     Size = UDim2.new(0, 380, 0, 200);
 })
@@ -99,8 +99,8 @@ object.TextBox = instance.new("TextBox", {
     ClearTextOnFocus = false;
 })
 pcall(function()
-    if true and isfile('tsuo.bin') and not getgenv().Key then
-        object.TextBox.Text = readfile("tsuo.bin")
+    if true and isfile('naoki.bin') and not getgenv().Key then
+        object.TextBox.Text = readfile("naoki.bin")
     elseif getgenv().Key then 
         object.TextBox.Text = tostring(getgenv().Key)
     end
@@ -227,16 +227,16 @@ end
 
 local function SaveKey()
     local s, e = pcall(function()
-        if not isfile('tsuo.bin') then
-            writefile('tsuo.bin', GetKeyText())
+        if not isfile('naoki.bin') then
+            writefile('naoki.bin', GetKeyText())
         end
     end)
 end
 
 local function RemoveKey()
     local s, e = pcall(function()
-        if isfile('tsuo.bin') then
-            delfile('tsuo.bin')
+        if isfile('naoki.bin') then
+            delfile('naoki.bin')
         end
     end)
 end
@@ -244,8 +244,8 @@ end
 local function ReadKey()
     local KEY;
     local s, e = pcall(function()
-        if isfile('tsuo.bin') then
-            KEY = readfile('tsuo.bin')
+        if isfile('naoki.bin') then
+            KEY = readfile('naoki.bin')
         elseif getgenv().Key and typeof(getgenv().Key) == "string" then 
             KEY = getgenv().Key
         end
@@ -601,7 +601,7 @@ local function wl(key)
         end
         --- Hub Values ---
         Hub = {}
-        Hub.Name = "Tsuo Hub"
+        Hub.Name = "Naoki Hub"
         Hub.Game = "Blox Fruits"
         ---- Settings -----
         HttpService = game:GetService("HttpService")
@@ -813,7 +813,7 @@ local function wl(key)
         local Window =
             Fluent:CreateWindow(
             {
-                Title = "Tsuo Hub Update 20",
+                Title = "Naoki Hub Update 20",
                 SubTitle = "Dev By VMH09",
                 TabWidth = 160,
                 Size = UDim2.fromOffset(Size11, Size22),
@@ -828,7 +828,7 @@ local function wl(key)
             domain = newmm
             function newmm:NewParagraph(cf)
                 local paragraphnew
-                newTitle = cf.Title or "Tsuo Hub"
+                newTitle = cf.Title or "Naoki Hub"
                 newContent = cf.Content or "MMB"
                 paragraphnew =
                     domain:AddParagraph(
@@ -838,7 +838,7 @@ local function wl(key)
                     }
                 )
                 function paragraphnew:Set(cf2)
-                    newTitle = cf2.Title or "Tsuo Hub"
+                    newTitle = cf2.Title or "Naoki Hub"
                     newContent = cf2.Content or "MMB"
                     paragraphnew:SetTitle(newTitle)
                     paragraphnew:SetDesc(newContent)
@@ -1047,7 +1047,7 @@ local function wl(key)
         end 
         SettingTab = Window:NewTab({Title = "Setting",Icon = getRandomIcon()})
         function CreateUiNotify(cf)
-            newtitle = cf.Title or "Tsuo Hub"
+            newtitle = cf.Title or "Naoki Hub"
             newcontent = cf.Content or "Nothing"
             newduration = cf.Duration or 10
             newsubcontent = cf.SubContent or ""
@@ -5322,7 +5322,7 @@ local function wl(key)
         end
         function Notify(v1, v2, v3) 
             if tostring(v1) == "nil" then 
-                v1 = "Tsuo Hub" 
+                v1 = "Naoki Hub" 
             end
             CreateUiNotify(
                 {
@@ -6250,10 +6250,10 @@ local function wl(key)
         
         function SaveSettings2()
             local HttpService = game:GetService("HttpService")
-            if not isfolder("Tsuo Hub") then
-                makefolder("Tsuo Hub")
+            if not isfolder("Naoki Hub") then
+                makefolder("Naoki Hub")
             end
-            writefile("Tsuo Hub/" .. SaveFileName2, HttpService:JSONEncode(Settings2))
+            writefile("Naoki Hub/" .. SaveFileName2, HttpService:JSONEncode(Settings2))
         end
         
         function ReadSetting2()
@@ -6261,10 +6261,10 @@ local function wl(key)
                 pcall(
                 function()
                     local HttpService = game:GetService("HttpService")
-                    if not isfolder("Tsuo Hub") then
-                        makefolder("Tsuo Hub")
+                    if not isfolder("Naoki Hub") then
+                        makefolder("Naoki Hub")
                     end
-                    return HttpService:JSONDecode(readfile("Tsuo Hub/" .. SaveFileName2))
+                    return HttpService:JSONDecode(readfile("Naoki Hub/" .. SaveFileName2))
                 end
             )
             if s then
@@ -9507,7 +9507,7 @@ local function wl(key)
         Window:SelectTab(1)
         Fluent:Notify(
             {
-                Title = "Tsuo Hub",
+                Title = "Naoki Hub",
                 Content = "The script has been loaded successful.",
                 Duration = 15
             }
