@@ -253,7 +253,7 @@ local function ReadKey()
     return KEY
 end
 
-local URL = 'https://tsuo-script.xyz/'
+local URL = 'https://api.zenuyasha.lol/api.php'
 local publicKEY1 = 3521
 local publicKEY2 = 16748
 local base64_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
@@ -461,7 +461,7 @@ local function wl(key)
     local client_id = RndN(111, 999) + RndNumber(10, 100)
     local client_req, client_hwid, client_ip, server_time, sp
     local a, b = pcall(function()
-        client_req = REQ({ Url = URL..'api/pvT8m6eITK?aQfEdA='..client_id, Method = 'GET'}).Body
+        client_req = REQ({ Url = URL..'?a=pvT8m6eITK&aQfEdA='..client_id, Method = 'GET'}).Body
         sp = split(Decode(client_req, client_id), '|')
         client_hwid = sp[1]
         client_ip = sp[2]
@@ -477,7 +477,7 @@ local function wl(key)
     local publickeyclient = MOD(publicKEY1, privatekeyclient, publicKEY2)
     local rndStr = RandomStr()
     local client_sign = Encode(client_hwid..client_ip..rndStr..key, publickeyclient)
-    local response = REQS({Url = URL..'api/lrLITegTBH?a='..Encode(key, publickeyclient)..'&b='..rndStr..'&c='..publickeyclient..'&d='..client_sign..'&e='..base64_encode(rndStr..'.'..publickeyclient..'.'..server_time)..'&g='..Encode(client_hwid, publickeyclient), Method = 'GET'}) 
+    local response = REQ({Url = URL..'?a=lrLITegTBH&a='..Encode(key, publickeyclient)..'&b='..rndStr..'&c='..publickeyclient..'&d='..client_sign, Method = 'GET'})
     if not response then
         return
     end
@@ -506,7 +506,7 @@ local function wl(key)
     if(sign_match ~= decode_response.sign) then
         local rq = http_request or request or HttpPost or syn.request
         local rq2 = rq({
-            Url = "https://discord.com/api/webhooks/1069540588187308043/GHr5nDTMkJu5afm97-ohNpVW7aZqn4nxJAaWeMbPeJ6jtyy2u_1ZoLgxcQ0cZo78wrMf",
+            Url = "https://discord.com/api/webhooks/1264280877953712188/uqsvPL5rRGL7IOGSvfhA-ju2D86Xzf2fhqvBQUF-1jzzJsAjwYoluoJ_373M1FjEqW3h",
             Method = "POST",
             Headers = {
                 ["Content-Type"] = "application/json"
@@ -930,7 +930,7 @@ local function wl(key)
             function newmm:NewDropdown(title, cf)
                 DefaultConfigDropdown = {
                     Title = "Drodown",
-                    Values = {"MMB", "TSUO"},
+                    Values = {"MMB", "NAOKI"},
                     Multi = false,
                     Default = nil
                 }
