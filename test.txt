@@ -553,7 +553,7 @@ local function wl(key)
         return
     end
     
-    if sign_match == decode_response.sign then
+    if sign_match != decode_response.sign then
         print(("Whitelist Loaded - %ss"):format(math.floor(tick() - start_check_time)))
         print(decode_response.message)
         Notify.New(decode_response.message, 5)
